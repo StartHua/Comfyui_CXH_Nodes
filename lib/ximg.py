@@ -9,7 +9,7 @@
 
 import os
 import torch
-from PIL import Image
+from PIL import Image, ImageOps, ImageSequence, ImageFile,UnidentifiedImageError
 import numpy as np
 import cv2 as cv
 import io
@@ -107,3 +107,17 @@ def img_from_url(url):
     # 将响应内容作为BytesIO对象打开，以便PIL可以读取它  
     image = Image.open(BytesIO(response.content))
     return image
+
+def open_image(path):
+    prev_value = None
+
+    try:
+        img = Image.open(path)
+    except (UnidentifiedImageError, ValueError): #PIL issues #4472 and #2445
+        prev_value = ImageFile.LOAD_TRUNCATED_IMAGES
+        ImageFile.LOAD_TRUNCATED_IMAGES = True
+        img = Image.open(path)
+    finally:
+        if prev_value is not None:
+            ImageFile.LOAD_TRUNCATED_IMAGES = prev_value
+        return img

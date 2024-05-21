@@ -1,17 +1,18 @@
-
 import os
 import torch
 from PIL import Image
 import folder_paths
 import latent_preview
-import node_helpers
 import numpy as np
 import safetensors.torch
 
-from PIL import Image, ImageOps, ImageSequence, ImageFile
+from PIL import Image, ImageOps, ImageSequence, ImageFile,UnidentifiedImageError
 from PIL.PngImagePlugin import PngInfo
 
 from .lib.ximg import *
+import cv2
+
+
 
 class Net_image:
     @classmethod
@@ -38,10 +39,10 @@ class Net_image:
            img =  img_from_url(url)
         else:
             image_path = folder_paths.get_annotated_filepath(image)
-            img = node_helpers.pillow(Image.open, image_path)
+            img = open_image(image_path)
 
         for i in ImageSequence.Iterator(img):
-            i = node_helpers.pillow(ImageOps.exif_transpose, i)
+            # i = open_image(i)
 
             if i.mode == 'I':
                 i = i.point(lambda i: i * (1 / 255))
@@ -66,10 +67,44 @@ class Net_image:
         return (output_image, output_mask)
 
 
+
+def subtract_masks(mask1, mask2):
+    mask1 = mask1.cpu()
+    mask2 = mask2.cpu()
+    cv2_mask1 = np.array(mask1) * 255
+    cv2_mask2 = np.array(mask2) * 255
+
+    if cv2_mask1.shape == cv2_mask2.shape:
+        cv2_mask = cv2.subtract(cv2_mask1, cv2_mask2)
+        return torch.clamp(torch.from_numpy(cv2_mask) / 255.0, min=0, max=1)
+    else:
+        # do nothing - incompatible mask shape: mostly empty mask
+        return mask1
+    
+class SubtractMask:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {"required": {
+                        "mask1": ("MASK", ),
+                        "mask2": ("MASK", ),
+                      }
+                }
+
+    RETURN_TYPES = ("MASK",)
+    FUNCTION = "doit"
+
+    CATEGORY = "CXH/mask"
+
+    def doit(self, mask1, mask2):
+        mask = subtract_masks(mask1, mask2)
+        return (mask,)
+
 NODE_CLASS_MAPPINGS = {
-    "Net_image":Net_image
+    "Net_image":Net_image,
+    "SubtractMask":SubtractMask
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Net_image":"Net_image"
+    "Net_image":"Net_image",
+    "SubtractMask":"SubtractMask"
 }
