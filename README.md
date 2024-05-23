@@ -8,6 +8,7 @@
 
 ![1716443218407](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/b8241d4b-bf33-4849-a5c1-a059615d4e2b)
 
-注意修改（主要是window端flash_attention 支持不太友好）查看模型下载后的README作者给出了修改方案：
+注意修改（主要是window端flash_attention 支持不太友好,模型自动下载失败请手动下载）查看模型下载后的README作者给出了修改方案：
+phi-3-vision-128k-instruct-quantized 量化版需要flash_attention安装
 
 ![1716443127371](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/752be09a-3022-4c25-ad2e-cc4d7c63183c)
