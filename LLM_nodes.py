@@ -22,7 +22,7 @@ class Phi_3_vision:
             "required": {
                 "image": ("IMAGE",),
                 "prompt": ("STRING",{"default": 'Describe the image below', "multiline": True}),
-                "model": (["Phi-3-vision-128k-instruct"],),
+                "model": (["Phi-3-vision-128k-instruct","phi-3-vision-128k-instruct-quantized"],),
                 "temperature": ("FLOAT", {"default": 0, "min": 0.0, "max": 1.0, "step": 0.01}),
                 "max_new_tokens": ("INT", {"default": 500, "min": 100, "max": 2000, "step": 500}),
                 "cache": ("BOOLEAN", {"default": False}),
@@ -38,8 +38,12 @@ class Phi_3_vision:
         self.cache = cache
 
         #下载本地
-        model_id = f"microsoft/{model}"
-        model_checkpoint = download_hg_model(model_id,"microsoft")
+        if model == "Phi-3-vision-128k-instruct":
+            model_id = f"microsoft/{model}"
+            model_checkpoint = download_hg_model(model_id,"microsoft")
+        else:
+            model_id = f"dwb2023/{model}"
+            model_checkpoint = download_hg_model(model_id,"microsoft")    
         
         torch.random.manual_seed(0)
         
