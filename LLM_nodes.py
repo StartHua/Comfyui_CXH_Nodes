@@ -88,10 +88,10 @@ class Phi_3_vision:
         return (response,)
         
 
-NODE_CLASS_MAPPINGS = {
-    "Phi_3_vision": Phi_3_vision,
-}
+# NODE_CLASS_MAPPINGS = {
+#     "Phi_3_vision": Phi_3_vision,
+# }
 
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "Phi_3_vision": "Phi_3_vision",
-}
+# NODE_DISPLAY_NAME_MAPPINGS = {
+#     "Phi_3_vision": "Phi_3_vision",
+# }

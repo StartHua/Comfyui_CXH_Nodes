@@ -99,12 +99,12 @@ class SubtractMask:
         mask = subtract_masks(mask1, mask2)
         return (mask,)
 
-NODE_CLASS_MAPPINGS = {
-    "Net_image":Net_image,
-    "SubtractMask":SubtractMask
-}
+# NODE_CLASS_MAPPINGS = {
+#     "Net_image":Net_image,
+#     "SubtractMask":SubtractMask
+# }
 
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "Net_image":"Net_image",
-    "SubtractMask":"SubtractMask"
-}
+# NODE_DISPLAY_NAME_MAPPINGS = {
+#     "Net_image":"Net_image",
+#     "SubtractMask":"SubtractMask"
+# }
