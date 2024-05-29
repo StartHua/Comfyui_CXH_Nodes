@@ -4,7 +4,12 @@
 
 ![net_image](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/c9151015-8689-4f52-a12e-63a117590ef7)
 
-2.Phi-3-vision-128k-instruct 图片反推（自动下载模型到models\microsoft下）
+2.CLoad_Image 重新解决图片MPO 格式报错SyntaxError: not a JPEG file
+
+![1716961041138](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/296e6bea-3625-41d4-a98f-e7705020074a)
+
+
+3.Phi-3-vision-128k-instruct 图片反推（自动下载模型到models\microsoft下）
 
 ![1716443218407](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/b8241d4b-bf33-4849-a5c1-a059615d4e2b)
 
