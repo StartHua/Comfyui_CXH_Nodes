@@ -22,3 +22,6 @@ phi-3-vision-128k-instruct-quantized 量化版需要flash_attention安装
 
 模型存放地址（建议手动下载，也可自动下载）：
 ![1719550323264](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/287c48ed-fef6-4ab7-b810-6e33e97f9b1e)
+
+![1719550411101](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/d191e783-0059-40ea-9d37-72e6cc031c09)
+
