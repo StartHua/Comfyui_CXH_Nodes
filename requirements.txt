@@ -4,5 +4,7 @@ Pillow==10.3.0
 Requests==2.31.0
 # torch==2.3.0
 # torchvision==0.18.0
-transformers==4.40.2
+# transformers==4.40.2
 huggingface_hub
+einops
+safetensors

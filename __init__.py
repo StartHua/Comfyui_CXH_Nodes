@@ -5,17 +5,20 @@ from .image_nodes import Net_image
 from .image_nodes import SubtractMask
 from .image_nodes import CLoad_Image
 from .LLM_nodes import Phi_3_vision
+from .aursa_node import AursaCXH
 
 NODE_CLASS_MAPPINGS = {
     "Net_image":Net_image,
     "SubtractMask":SubtractMask,
     "Phi_3_vision":Phi_3_vision,
-    "CLoad_Image":CLoad_Image
+    "CLoad_Image":CLoad_Image,
+    "AursaCXH":AursaCXH
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "Net_image":"Net_image",
     "SubtractMask":"SubtractMask",
     "Phi_3_vision":"Phi_3_vision",
-    "CLoad_Image":"CLoad_Image"
+    "CLoad_Image":"CLoad_Image",
+    "AursaCXH":"AursaCXH"
 }
