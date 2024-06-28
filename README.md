@@ -17,3 +17,8 @@
 phi-3-vision-128k-instruct-quantized 量化版需要flash_attention安装
 
 ![1716443127371](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/752be09a-3022-4c25-ad2e-cc4d7c63183c)
+
+4.aura-sr 放大
+
+模型存放地址（建议手动下载，也可自动下载）：
+![1719550323264](https://github.com/StartHua/Comfyui_CXH_Nodes/assets/22284244/287c48ed-fef6-4ab7-b810-6e33e97f9b1e)
